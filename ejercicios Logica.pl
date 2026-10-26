@@ -1,3 +1,9 @@
+% COMO PROBAR: en swipl, desde esta carpeta:
+% consult('ejercicios Logica.pl').
+% Aparecera el error de sintaxis original del cine; los bloques anteriores
+% quedan disponibles en SWI-Prolog. Cada ejercicio tiene su consulta abajo.
+% Usa ; para pedir alternativas y Enter para aceptar una respuesta.
+
 % GUIA: cada bloque representa un acertijo mediante candidatos y restricciones.
 % =/2 unifica; =:=/2 compara valores numericos; =\=/2 exige valores diferentes.
 % succ(A,B) relaciona enteros consecutivos B = A+1; no evalua expresiones.
@@ -9,6 +15,8 @@
 % Cargar este archivo puede mostrar errores aunque otras clausulas se carguen.
 
 % Clave secreta:
+% PRUEBA: clave_secreta(Clave).
+% Esperado actualmente: error de tipo en succ/2; no se obtiene una clave.
 
 % Genera digitos y filtra por las relaciones y la suma; ver advertencia inicial.
 clave_secreta([D1, D2, D3, D4, D5]):-
@@ -37,6 +45,8 @@ asignar_digito(9).
 
 
 % Tres senoras - sin lista:
+% PRUEBA: tres_senoras_sin(Blanco, Rubio, Castano).
+% Esperado: Blanco = rubio, Rubio = castano, Castano = blanco.
 
 % Asigna colores y descarta coincidencias prohibidas y colores repetidos.
 tres_senoras_sin(Blanco, Rubio, Castano):-
@@ -53,6 +63,8 @@ tres_senoras_sin(Blanco, Rubio, Castano):-
 
 
 % Tres senoras - con lista:
+% PRUEBA: tres_senoras(L).
+% Esperado: L = [rubio,castano,blanco].
 
 % Asigna colores y descarta coincidencias prohibidas y colores repetidos.
 tres_senoras(L):-
@@ -74,6 +86,9 @@ color_cabello(castano).
 
 
 % Hilera de cuatro casas:
+% PRUEBA: hilera_de_casas(L).
+% Primera respuesta: L = [[1,flores],[2,vasquez],[3,moreno],[4,gonzalez]].
+% Usa ; para explorar otras distribuciones.
 
 % Lista de [numero, apellido]; succ/2 en ambos sentidos comprueba vecindad.
 hilera_de_casas(L):-
@@ -106,6 +121,8 @@ asignar_casa([4, X], [_, _, _, [4, X]]).
 
 
 % Edificio de cinco pisos:
+% PRUEBA: cinco_plantas(L).
+% Primera respuesta: L = [[1,marina],[2,canuta],[3,chilo],[4,mario],[5,lencha]].
 
 % Lista de [piso, persona]; filtra extremos, vecinos y orden de altura.
 cinco_plantas(L):-
@@ -140,6 +157,9 @@ asignar_piso([5, X], [_, _, _, _, [5, X]]).
 
 
 % Sala de cine:
+% PRUEBA PREVISTA: sala_de_cine(L).
+% Actualmente no se puede resolver: la regla no se carga por su error de sintaxis.
+% En una sesion nueva, la consulta reporta procedimiento sala_de_cine/1 desconocido.
 
 % Intenta distribuir espectadores y comprobar vecinos; contiene errores originales.
 sala_de_cine(L):-

@@ -1,3 +1,10 @@
+% COMO PROBAR: en swipl, desde esta carpeta:
+% consult('campesino.pl').
+% juego_campesino(EI).
+% Imprime FIN DEL JUEGO y una lista de estados desde izq hasta der.
+% EI = [izq,izq,izq,izq]. Usa ; para buscar otro recorrido.
+% Para obtener solo el primero: once(juego_campesino(EI)).
+
 % GUIA: ejecutar juego_campesino(EI). para buscar e imprimir recorridos.
 % Cada estado es [Campesino, Zorra, Gallina, Granos], con lados izq y der.
 % La busqueda prueba movimientos en orden y retrocede cuando una rama falla.

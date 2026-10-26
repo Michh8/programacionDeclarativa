@@ -1,9 +1,17 @@
+% COMO PROBAR: en una sesion nueva de swipl, desde esta carpeta:
+% consult('desea_conocer.pl').
+% assertz(conoce(ana, bea)).
+% assertz(conoce(bea, carlos)).
+% Agrega esos hechos una sola vez; luego prueba cada version como se indica abajo.
+
 % Transcripcion de las tres versiones de la imagen proporcionada.
 % Requieren hechos conoce/2: conoce(ana, bea). conoce(bea, carlos).
 % Esos hechos se pueden ingresar con assertz/1 para probar, sin editar este archivo.
 % Se conserva la logica de la imagen, incluso sus limitaciones.
 
 % Version 1: caso directo; imprime Y y corta las alternativas de esta llamada.
+% PRUEBA V1: desea_conocer_v1(ana, carlos).
+% Con los hechos del encabezado, imprime carlos y luego bea; termina con true.
 desea_conocer_v1(X, Y):-
     conoce(X, Y),
     writeln(Y),
@@ -19,6 +27,8 @@ desea_conocer_v1(X, Y):-
 % Version 2: guarda visitados en la base dinamica con eslabon/1.
 % abolish/2 elimina el predicado previo; assert/1 inserta hechos.
 % Estos cambios de la base de datos no se deshacen con el retroceso.
+% PRUEBA V2: desea_conocer_v2(ana, carlos). Resultado: true.
+% Luego: listing(eslabon/1). Muestra ana, bea y carlos como hechos registrados.
 desea_conocer_v2(X, Y):-
     abolish(eslabon, 1),
     assert(eslabon(X)),
@@ -47,6 +57,8 @@ desea_conocer_v2_rec(X, Y):-
 
 % Version 3: pasa el historial como lista en vez de modificar la base.
 % W queda en orden inverso: destino, intermediarios, origen.
+% PRUEBA V3: desea_conocer_v3(ana, carlos, W).
+% Resultado esperado: W = [carlos,bea,ana].
 desea_conocer_v3(X, Y, W):-
     desea_conocer_v3_rec(X, Y, [], L),
     append(L, [X], W).

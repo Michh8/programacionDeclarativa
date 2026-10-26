@@ -1,3 +1,9 @@
+% COMO PROBAR: en swipl, desde esta carpeta:
+% consult('seis_amigos.pl').
+% seis_amigos(M).
+% Primera respuesta: M = [[carlos,tomas],[andres,dario],[alejandro,benito]].
+% Las parejas corresponden a auto, avion y tren. Usa ; para otras respuestas.
+
 % GUIA: consultar seis_amigos(MedTransp).
 % Resultado: [[pasajeros_auto], [pasajeros_avion], [pasajeros_tren]].
 % Cada medio tiene dos lugares. _ es una variable anonima distinta en cada uso.
